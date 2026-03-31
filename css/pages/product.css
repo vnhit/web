@@ -1,0 +1,106 @@
+/* =========================================================
+   TRANG THE VAULT (DANH SÁCH SẢN PHẨM)
+   ========================================================= */
+
+.vault-page {
+    padding: 40px 64px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- TRÊN CÙNG: HEADER & SORT --- */
+.page-header { margin-bottom: 48px; }
+.breadcrumb { color: #888; margin-bottom: 16px; font-size: 0.75rem;}
+.title-row { display: flex; justify-content: space-between; align-items: flex-end; }
+.sort-btn {
+    background: var(--surface-container-low);
+    border: none; padding: 12px 24px;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem;
+    cursor: pointer; display: flex; align-items: center; gap: 16px;
+    transition: background 0.2s;
+}
+.sort-btn:hover { background: #e2e2e2; }
+
+/* --- BỐ CỤC CHÍNH --- */
+.plp-layout { display: flex; gap: 64px; align-items: flex-start; }
+
+/* --- CỘT TRÁI: SIDEBAR BỘ LỌC --- */
+.sidebar-filters { width: 220px; flex-shrink: 0; }
+.filter-header { margin-bottom: 32px; }
+.filter-group { border-top: 1px solid #ddd; padding: 24px 0; }
+.filter-title {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px; cursor: pointer; font-weight: 700;
+}
+
+/* Custom Checkbox */
+.custom-checkbox { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; cursor: pointer; }
+.custom-checkbox input { display: none; }
+.checkmark { width: 16px; height: 16px; border: 1px solid var(--on-surface); display: flex; align-items: center; justify-content: center; }
+.custom-checkbox input:checked + .checkmark { background: var(--primary); border-color: var(--primary); }
+.custom-checkbox input:checked + .checkmark::after { content: "✓"; color: white; font-size: 10px; font-weight: bold;}
+
+/* Size Grid */
+.size-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.size-btn {
+    background: var(--surface-container-low); border: none; padding: 12px 0;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem; cursor: pointer;
+}
+.size-btn:hover { background: #e2e2e2; }
+.size-btn.active { background: var(--primary); color: white; }
+
+/* Colors */
+.color-swatches { display: flex; gap: 12px; }
+.swatch { width: 24px; height: 24px; cursor: pointer; }
+
+/* Price Slider */
+.slider-track { height: 2px; background: #ddd; position: relative; margin: 16px 0 8px; }
+.slider-fill { height: 100%; background: var(--primary); position: absolute; left: 0; }
+.slider-thumb {
+    width: 12px; height: 12px; background: var(--primary);
+    border-radius: 50% !important; /* Ngoại lệ bo tròn duy nhất cho cái chấm kéo */
+    position: absolute; top: -5px; cursor: pointer;
+}
+.price-labels { display: flex; justify-content: space-between; color: #555; }
+
+/* --- CỘT PHẢI: GRID SẢN PHẨM --- */
+.products-container { flex-grow: 1; }
+.vault-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px;
+}
+
+/* =========================================================
+   STYLE CHO THẺ SẢN PHẨM (DÙNG KHI CẬU NHÉT RUỘT VÀO)
+   ========================================================= */
+.vault-card { display: flex; flex-direction: column; cursor: pointer;}
+.vault-card .card-image {
+    background: #e2e2e2; height: 320px; display: flex; align-items: center; justify-content: center;
+    position: relative; margin-bottom: 16px; overflow: hidden;
+}
+.vault-card .card-image img { width: 85%; object-fit: contain; transition: transform 0.4s ease; }
+.vault-card:hover .card-image img { transform: scale(1.08) rotate(-2deg); }
+
+/* Tags trên ảnh (Ví dụ: LIMITED EDITION, NEW DROP) */
+.tag {
+    position: absolute; top: 0; left: 0; font-family: 'Inter', sans-serif;
+    font-size: 0.6rem; font-weight: 700; padding: 6px 12px; color: white; z-index: 2;
+}
+.tag-dark { background: var(--on-surface); }
+.tag-primary { background: var(--primary); }
+
+/* Text thẻ sản phẩm */
+.card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.vault-card .product-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; text-transform: uppercase; }
+.vault-card .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--primary); }
+
+/* --- PHÂN TRANG (PAGINATION) --- */
+.pagination { display: flex; justify-content: center; gap: 8px; }
+.page-btn {
+    background: white; border: 1px solid #ddd; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem;
+    cursor: pointer; transition: all 0.2s;
+}
+.page-btn.next-btn { width: auto; padding: 0 16px; gap: 8px; }
+.page-btn:hover { border-color: var(--on-surface); }
+.page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }

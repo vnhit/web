@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | User Account</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <link rel="stylesheet" href="css/pages/user.css">
+</head>
+<body style="background-color: #f9f9f9;">
+
+    <div id="app-header"></div>
+
+    <main class="user-dashboard-layout">
+        
+        <aside class="user-sidebar">
+            
+            <div class="user-profile-summary" id="user-info-container">
+                </div>
+
+            <nav class="sidebar-menu">
+                <button class="menu-item" data-target="tab-dashboard">
+                    <span class="icon">⊞</span> DASHBOARD
+                </button>
+                <button class="menu-item" data-target="tab-profile">
+                    <span class="icon">⚙</span> PROFILE SETTINGS
+                </button>
+                <button class="menu-item active" data-target="tab-orders">
+                    <span class="icon">📦</span> ORDER HISTORY
+                </button>
+                <button class="menu-item" data-target="tab-wishlist">
+                    <span class="icon">♥</span> WISHLIST
+                </button>
+            </nav>
+
+        </aside>
+
+        <section class="user-content">
+            
+            <div id="tab-dashboard" class="tab-content" style="display: none;">
+                <div class="content-header">
+                    <h1 class="display-lg">DASHBOARD</h1>
+                    <p class="body-md text-gray">OVERVIEW OF YOUR ACCOUNT.</p>
+                </div>
+                <div id="dashboard-container" style="min-height: 300px; background: white;"></div>
+            </div>
+
+            <div id="tab-profile" class="tab-content" style="display: none;">
+                <div class="content-header">
+                    <h1 class="display-lg">PROFILE SETTINGS</h1>
+                    <p class="body-md text-gray">MANAGE YOUR PERSONAL DETAILS.</p>
+                </div>
+                <div id="profile-form-container" style="min-height: 300px; background: white;"></div>
+            </div>
+
+            <div id="tab-orders" class="tab-content" style="display: block;">
+                <div class="content-header">
+                    <h1 class="display-lg">ORDER HISTORY</h1>
+                    <p class="body-md text-gray">REVIEW AND TRACK YOUR RECENT STREET ACQUISITIONS.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="label-sm text-gray">TOTAL SPENT</span>
+                        <h2 class="stat-value" id="stat-total-spent"></h2> 
+                    </div>
+                    <div class="stat-box">
+                        <span class="label-sm text-gray">ACTIVE SHIPMENTS</span>
+                        <h2 class="stat-value" id="stat-active-shipments"></h2>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label-sm text-gray">LOYALTY TIER</span>
+                        <h2 class="stat-value text-primary" id="stat-loyalty-tier"></h2>
+                    </div>
+                </div>
+
+                <div class="orders-container" id="user-order-list">
+                    </div>
+
+                <div class="missing-something">
+                    <div>
+                        <h3 class="headline-sm">MISSING SOMETHING?</h3>
+                        <p class="body-md text-gray">Orders typically appear here within 5 minutes of checkout. If you're missing an entry, please contact our urban support team.</p>
+                    </div>
+                    <a href="#" class="link-primary-bold">CONTACT SUPPORT</a>
+                </div>
+            </div>
+
+            <div id="tab-wishlist" class="tab-content" style="display: none;">
+                <div class="content-header">
+                    <h1 class="display-lg">WISHLIST</h1>
+                    <p class="body-md text-gray">YOUR SAVED STREETWEAR ESSENTIALS.</p>
+                </div>
+                <div id="wishlist-grid" style="min-height: 300px; background: white;"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="app-footer"></div>
+
+</body>
+</html>

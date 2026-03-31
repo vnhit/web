@@ -1,0 +1,17 @@
+/* css/layout.css */
+/* HEADER */
+.site-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 64px; background: rgba(249, 249, 249, 0.9);
+    position: sticky; top: 0; z-index: 100;
+}
+.main-nav a { margin: 0 16px; text-decoration: none; color: var(--on-surface); }
+.main-nav a:hover { color: var(--primary); }
+
+/* FOOTER */
+.site-footer { 
+    background-color: #1a1a1a; color: white; 
+    padding: 64px 64px 24px; margin-top: 80px; 
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 40px; }
+/* ... copy nốt phần CSS cho footer vào đây ... */

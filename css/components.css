@@ -1,0 +1,10 @@
+/* css/components.css */
+.btn-primary {
+    background-color: var(--primary); color: white;
+    padding: 12px 24px; border: none; cursor: pointer;
+}
+.btn-primary:hover { background-color: #8a2300; }
+
+.product-card { background: transparent; }
+.card-image { display: flex; align-items: center; justify-content: center; background: #e2e2e2; }
+/* ... copy CSS phần product card vào đây ... */

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | Product Detail</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <link rel="stylesheet" href="css/pages/product-detail.css">
+</head>
+<body style="background-color: #f9f9f9;">
+
+    <div id="app-header"></div>
+
+    <main class="pdp-container">
+        
+        <div class="breadcrumb label-sm" id="pdp-breadcrumb"></div>
+
+        <div class="pdp-main-split">
+            
+            <div class="pdp-gallery">
+                <div class="main-image-container" id="pdp-main-image"></div>
+                
+                <div class="thumbnail-grid" id="pdp-thumbnails"></div>
+            </div>
+
+            <div class="pdp-info">
+                
+                <div class="info-header">
+                    <div class="label-sm text-gray" id="pdp-brand-edition"></div>
+                    <h1 class="display-lg pdp-title" id="pdp-title"></h1>
+                    <div class="pdp-price text-primary" id="pdp-price"></div>
+                </div>
+
+                <div class="body-md text-gray pdp-description" id="pdp-description"></div>
+
+                <div class="pdp-option-section">
+                    <div class="option-header label-sm">
+                        <span>COLORWAY: <span id="pdp-selected-color"></span></span>
+                    </div>
+                    <div class="color-swatches" id="pdp-color-grid"></div>
+                </div>
+
+                <div class="pdp-option-section">
+                    <div class="option-header label-sm">
+                        <span>SELECT SIZE (US MEN)</span>
+                        <a href="#" class="size-guide-link text-primary">SIZE GUIDE</a>
+                    </div>
+                    <div class="size-grid" id="pdp-size-grid"></div>
+                </div>
+
+                <div class="pdp-actions">
+                    <button class="btn btn-primary btn-full" id="btn-add-cart">ADD TO CART</button>
+                    <button class="btn btn-outline btn-full" id="btn-add-wishlist">♥ ADD TO WISHLIST</button>
+                </div>
+
+                <div class="pdp-accordions" id="pdp-accordion-list">
+                    </div>
+
+            </div>
+        </div>
+
+        <section class="pdp-cross-sell">
+            <div class="section-title-bar">
+                <h2 class="headline-sm">COMPLETE THE LOOK</h2>
+            </div>
+            
+            <div class="cross-sell-grid" id="pdp-cross-sell-list"></div>
+        </section>
+
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

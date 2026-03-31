@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | The Vault - Men's Footwear</title>
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    
+    <link rel="stylesheet" href="/css/pages/product.css">
+</head>
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="vault-page">
+        <div class="page-header">
+            <div class="breadcrumb label-sm">HOME &gt; MEN'S FOOTWEAR</div>
+            <div class="title-row">
+                <h1 class="display-lg">THE <span class="text-primary">VAULT.</span></h1>
+                <button class="sort-btn label-sm">NEWEST ARRIVALS <span>⌄</span></button>
+            </div>
+        </div>
+
+        <div class="plp-layout">
+            
+            <aside class="sidebar-filters">
+                <div class="filter-header">
+                    <h3 class="headline-sm" style="font-size: 1.2rem;">FILTERS</h3>
+                    <p class="label-sm" style="color: #888;">REFINE YOUR SEARCH</p>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title label-sm"><span>⍋</span> CATEGORIES <span>-</span></div>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkmark"></span>
+                        <span class="body-md">MEN (124)</span>
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <span class="body-md">WOMEN (86)</span>
+                    </label>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title label-sm"><span>📏</span> SIZE <span>-</span></div>
+                    <div class="size-grid">
+                        <button class="size-btn">7</button>
+                        <button class="size-btn active">8</button>
+                        <button class="size-btn">9</button>
+                        <button class="size-btn">10</button>
+                        <button class="size-btn">11</button>
+                        <button class="size-btn">12</button>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title label-sm"><span>🎨</span> COLOR <span>+</span></div>
+                    <div class="color-swatches">
+                        <div class="swatch" style="background: #111;"></div>
+                        <div class="swatch" style="background: #fff; border: 1px solid #ddd;"></div>
+                        <div class="swatch" style="background: var(--primary);"></div>
+                        <div class="swatch" style="background: #1a4d7c;"></div>
+                        <div class="swatch" style="background: #a0a0a0;"></div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title label-sm"><span>💵</span> PRICE RANGE <span>-</span></div>
+                    <div class="price-slider">
+                        <div class="slider-track">
+                            <div class="slider-fill" style="width: 50%;"></div>
+                            <div class="slider-thumb" style="left: 50%;"></div>
+                        </div>
+                        <div class="price-labels label-sm">
+                            <span>$0</span>
+                            <span>$500</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="products-container">
+                
+                <div class="vault-grid" id="product-list">
+                    </div>
+
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn next-btn">NEXT →</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

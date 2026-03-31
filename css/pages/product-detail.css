@@ -1,0 +1,180 @@
+/* =========================================================
+   TRANG PRODUCT DETAIL (PDP)
+   ========================================================= */
+
+.pdp-container {
+    max-width: 1400px;
+    margin: 40px auto 100px;
+    padding: 0 64px;
+}
+
+.text-gray { color: #888; }
+.breadcrumb { margin-bottom: 32px; color: #555; }
+
+/* --- BỐ CỤC 2 CỘT --- */
+.pdp-main-split {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+
+/* --- CỘT TRÁI: GALLERY --- */
+.pdp-gallery {
+    flex: 1;
+    position: sticky;
+    top: 100px; /* Trượt theo nội dung bên phải */
+}
+
+/* Khung chờ Ảnh chính */
+.main-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ép khung vuông tuyệt đối */
+    background-color: #e2e2e2;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Khung chờ Thumbnails */
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+/* CSS cho ruột Thumbnail (JS sẽ đắp vào) */
+.thumb-item {
+    aspect-ratio: 1 / 1;
+    background-color: #e2e2e2;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.thumb-item img { width: 100%; height: 100%; object-fit: cover; }
+.thumb-item.active { border-color: var(--primary); }
+
+
+/* --- CỘT PHẢI: INFO --- */
+.pdp-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-header { margin-bottom: 24px; }
+.pdp-title { 
+    font-size: 4.5rem; /* Cỡ chữ khổng lồ như trong ảnh */
+    line-height: 1; 
+    margin: 8px 0 16px; 
+    letter-spacing: -2px;
+}
+.pdp-price { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; }
+
+.pdp-description {
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Khung Tùy chọn (Color & Size) */
+.pdp-option-section { margin-bottom: 32px; }
+.option-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+.size-guide-link { text-decoration: none; border-bottom: 1px solid var(--primary); }
+
+/* Ruột Color Swatches (JS sẽ đắp vào) */
+.color-swatches { display: flex; gap: 16px; }
+.color-swatch-btn {
+    width: 40px; height: 40px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+.color-swatch-btn.active { border: 2px solid var(--primary); }
+
+/* Ruột Size Grid (JS sẽ đắp vào) */
+.size-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cột theo thiết kế mới */
+    gap: 8px;
+}
+.size-btn {
+    background: var(--surface-container-low);
+    border: none;
+    padding: 16px 0;
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.size-btn:hover { background: #e2e2e2; }
+.size-btn.active { background: var(--on-surface); color: white; }
+
+/* Buttons */
+.pdp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+.btn-full { width: 100%; padding: 20px; font-size: 1rem; }
+.btn-outline {
+    background: white; border: 2px solid var(--on-surface);
+    color: var(--on-surface); font-family: 'Inter', sans-serif;
+    font-weight: 700; text-transform: uppercase; cursor: pointer;
+}
+
+/* Ruột Accordions (JS sẽ đắp vào) */
+.pdp-accordions { display: flex; flex-direction: column; gap: 8px; }
+.accordion-item {
+    background: var(--surface-container-low);
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+/* --- CROSS SELL (COMPLETE THE LOOK) --- */
+.pdp-cross-sell {
+    border-top: 1px solid #ddd;
+    padding-top: 64px;
+}
+/* Dấu gạch đỏ sát tiêu đề */
+.section-title-bar {
+    border-left: 4px solid var(--primary);
+    padding-left: 16px;
+    margin-bottom: 40px;
+}
+
+/* Khung chờ 4 sản phẩm */
+.cross-sell-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    min-height: 300px; /* Chiều cao giữ form khi chưa có ruột */
+}
+/* Khung bọc ngoài phải có display: flex để các ô màu nằm ngang */
+.color-swatches { 
+    display: flex; 
+    gap: 16px; 
+    align-items: center;
+}
+
+/* Kích thước từng ô màu */
+.color-swatch-btn {
+    width: 40px; 
+    height: 40px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}

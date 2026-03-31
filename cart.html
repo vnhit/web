@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | Shopping Cart</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <link rel="stylesheet" href="css/pages/cart.css">
+</head>
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="cart-page">
+        
+        <div class="page-header">
+            <h1 class="display-lg">YOUR <span class="text-primary">CART.</span></h1>
+            <p class="body-md text-gray" id="cart-item-count"></p>
+        </div>
+
+        <div class="cart-layout">
+            
+            <section class="cart-items-section">
+                <div class="cart-table-header label-sm text-gray">
+                    <div class="col-product">PRODUCT</div>
+                    <div class="col-quantity">QUANTITY</div>
+                    <div class="col-total">TOTAL</div>
+                </div>
+
+                <div class="cart-items-container" id="cart-item-list">
+                    </div>
+            </section>
+
+            <aside class="cart-summary-section">
+                <div class="summary-box">
+                    <h2 class="headline-sm" style="margin-bottom: 32px;">ORDER SUMMARY</h2>
+                    
+                    <div class="summary-row">
+                        <span class="body-md">SUBTOTAL</span>
+                        <span class="body-md font-bold" id="summary-subtotal"></span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span class="body-md">ESTIMATED SHIPPING</span>
+                        <span class="body-md text-gray">Calculated at checkout</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total-row">
+                        <span class="headline-sm">TOTAL</span>
+                        <span class="display-sm text-primary" id="summary-total"></span>
+                    </div>
+
+                    <button class="btn btn-primary btn-full checkout-btn" id="btn-checkout">PROCEED TO CHECKOUT</button>
+
+                    <div class="promo-code-container">
+                        <p class="label-sm text-gray" style="margin-bottom: 8px;">PROMO CODE</p>
+                        <div class="promo-input-group">
+                            <input type="text" placeholder="ENTER CODE" class="promo-input">
+                            <button class="btn-outline apply-btn">APPLY</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+    
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
