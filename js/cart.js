@@ -84,3 +84,6 @@ function removeCartItem(id){
     localStorage.setItem('kicks_cart',JSON.stringify(cart));
     renderCartPage();
 }
+document.addEventListener("DOMContentLoaded",() => {
+    renderCartPage();
+})

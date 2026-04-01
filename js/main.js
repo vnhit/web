@@ -1,10 +1,10 @@
 // Card product
-function fetchAndRenderProducts(){
-    const productList = document.getElementById('product-list');
+function fetchAndRenderProducts(containerId ,limit) {
+    const productList = document.getElementById( containerId);
 
     if(!productList) return;
 
-    fetch('https://dummyjson.com/products/category/mens-shoes')
+    fetch(`https://dummyjson.com/products/category/mens-shoes?limit=${limit}`)
         .then(response => {
             if(!response.ok) throw new Error('Lỗi mạng!');
             return response.json();
@@ -36,9 +36,10 @@ function fetchAndRenderProducts(){
 }
 ////=============================
 document.addEventListener("DOMContentLoaded", () =>{
-    fetchAndRenderProducts();
+    fetchAndRenderProducts('product-list',0);
+    fetchAndRenderProducts('home-trending-list',5);
     renderProductDetail();
-    renderCartPage()
+    renderHomeStaticContent();
 });
 //================================
 // Product detail
@@ -106,11 +107,8 @@ function renderProductDetail(){
                 cart.push(cartItem);
                 alert('Đã thêm sp');
                 }
-                console.log(cart);
-console.log(cartItem);
                 localStorage.setItem('kicks_cart',JSON.stringify(cart));
-                
-                })
+                });
                 
             }
             
@@ -120,6 +118,27 @@ console.log(cartItem);
             console.error("Lỗi lấy sp:",error);
             productDetail.textContent = "Lỗi tải dữ liệu";
         });
+}
+// home
+function renderHomeStaticContent(){
+    if(!document.getElementById('hero-title')) return;
+    document.getElementById('hero-title').innerHTML =`<span class="text-primary">PRECISION</span>`;
+    document.getElementById('hero-subtitle').textContent ="Mẫu mã trẻ trung năng động";
+    document.getElementById('hero-buttons').innerHTML =`<a href="products.html class="btn btn-primary">SHOP</a>`;
+    document.getElementById('hero-image-container').innerHTML = `<img src="" alt="Hero">`;
 
+    const ticker = document.getElementById('home-brand-ticker');
+    if(ticker){
+        const brand = ['NIKE','ADIDAS','PUMA','JORDAN','OFF WHITE'];
+        ticker.innerHTML = brand.map(b => `<span>${b}</span>`).join(' . ').repeat(5);
+    }
+
+    document.getElementById('promo-image-container').innerHTML = `
+        <img src="" alt="Promo Shoe">`;
+    document.getElementById('promo-tag').textContent ="LIMITED EDITION";
+    document.getElementById('promo-title').textContent = "HOT" ;
+    document.getElementById('promo-desc').textContent = "";
+    document.getElementById('promo-link-text').textContent = "EXPLORE THE LOOKBOOK";
+    document.getElementById('promo-link-text').href = "products.html";
 
 }
