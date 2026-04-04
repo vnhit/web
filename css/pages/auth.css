@@ -1,0 +1,110 @@
+/* =========================================================
+   TRANG ĐĂNG NHẬP / ĐĂNG KÝ (AUTH PAGE)
+   ========================================================= */
+
+.auth-page {
+    max-width: 1200px;
+    margin: 64px auto 120px;
+    padding: 0 64px;
+}
+
+.auth-page .page-header {
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 48px;
+}
+
+/* Hộp Form gom giữa màn hình */
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+/* CSS cho 2 cái nút chuyển Tab */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.auth-tab-btn {
+    flex: 1; 
+    padding: 20px;
+    background: #f9f9f9;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.auth-tab-btn:hover {
+    background: #eaeaea;
+}
+
+/* Khi nút Tab đang được chọn */
+.auth-tab-btn.active {
+    background: white;
+    color: var(--on-surface);
+    border-bottom: 3px solid var(--primary); /* Gạch màu cam cho KICKS */
+}
+
+/* CSS cho thẻ bọc form */
+.auth-section {
+    padding: 40px;
+}
+
+/* Style cho các ô nhập liệu */
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    background: var(--surface);
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    background: white;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 20px;
+    margin-top: 16px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--on-surface);
+    color: var(--on-surface);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: var(--on-surface);
+    color: white;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | Enter The Vault</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    
+    <link rel="stylesheet" href="css/pages/auth.css">
+</head>
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="auth-page">
+        <div class="page-header">
+            <h1 class="display-lg">ENTER THE <span class="text-primary">VAULT.</span></h1>
+            <p class="body-md text-gray">AUTHENTICATE TO ACCESS EXCLUSIVE DROPS.</p>
+        </div>
+
+        <div class="auth-container">
+            
+            <div class="auth-tabs">
+                <button class="auth-tab-btn active" data-target="login-section">LOG IN</button>
+                <button class="auth-tab-btn" data-target="register-section">REGISTER</button>
+            </div>
+
+            <section class="auth-section" id="login-section">
+                <h2 class="headline-sm" style="margin-bottom: 24px;">WELCOME BACK</h2>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label class="label-sm">EMAIL ADDRESS</label>
+                        <input type="email" id="login-email" required placeholder="ENTER EMAIL">
+                    </div>
+                    <div class="input-group">
+                        <label class="label-sm">PASSWORD</label>
+                        <input type="password" id="login-password" required placeholder="ENTER PASSWORD">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">LOG IN TO ACCOUNT</button>
+                </form>
+            </section>
+
+            <section class="auth-section" id="register-section" style="display: none;">
+                <h2 class="headline-sm" style="margin-bottom: 24px;">CREATE ACCOUNT</h2>
+                <form id="register-form">
+                    <div class="input-group">
+                        <label class="label-sm">FULL NAME</label>
+                        <input type="text" id="reg-name" required placeholder="ENTER YOUR FULL NAME">
+                    </div>
+                    <div class="input-group">
+                        <label class="label-sm">EMAIL ADDRESS</label>
+                        <input type="email" id="reg-email" required placeholder="ENTER EMAIL">
+                    </div>
+                    <div class="input-group">
+                        <label class="label-sm">PASSWORD</label>
+                        <input type="password" id="reg-password" required placeholder="CREATE A PASSWORD">
+                    </div>
+                    <button type="submit" class="btn btn-outline btn-full">REGISTER NOW</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

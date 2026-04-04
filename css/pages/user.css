@@ -127,3 +127,57 @@
     border-bottom: 2px solid var(--primary);
     padding-bottom: 4px;
 }
+/* ==========================================
+   BỔ SUNG CSS CHO PHẦN RENDER TỪ JS
+   ========================================== */
+
+/* 1. Ảnh đại diện (Avatar) */
+.user-avatar {
+    width: 48px; 
+    height: 48px; 
+    border-radius: 50%; 
+    background: var(--on-surface); 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: 1.2rem; 
+    font-weight: 700;
+}
+
+.user-name-box h3 {
+    font-size: 1rem; 
+    margin-bottom: 4px;
+}
+
+/* 2. Item Lịch sử đơn hàng (Order List) */
+.order-item {
+    padding: 24px 0; 
+    border-bottom: 1px solid #ddd; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.order-info h4 {
+    margin: 8px 0; 
+    font-size: 1.1rem;
+}
+
+.order-status {
+    text-align: right;
+}
+
+.order-status p {
+    margin-bottom: 8px;
+}
+
+/* 3. Nút trạng thái giao hàng */
+.badge-delivered {
+    background: #e8f5e9; 
+    color: #2e7d32; 
+    padding: 4px 12px; 
+    font-size: 0.75rem; 
+    font-weight: 700;
+}
