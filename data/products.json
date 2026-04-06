@@ -1,0 +1,110 @@
+[
+  {
+    "id": "kicks-01",
+    "title": "NIKE AIR FORCE 1 '07",
+    "brand": "NIKE",
+    "price": 115.00,
+    "thumbnail": "images/nike-af1.jpg",
+    "availableSizes": [7, 8, 8.5, 9, 10, 11],
+    "colors": ["#ffffff", "#111111"]
+  },
+  {
+    "id": "kicks-02",
+    "title": "YEEZY BOOST 350 V2",
+    "brand": "ADIDAS",
+    "price": 230.00,
+    "thumbnail": "images/yeezy-350.jpg",
+    "availableSizes": [8, 8.5, 9, 10, 11, 12],
+    "colors": ["#111111", "#e2e2e2", "#ad2c00"]
+  },
+  {
+    "id": "kicks-03",
+    "title": "JORDAN 1 RETRO HIGH OG",
+    "brand": "JORDAN",
+    "price": 180.00,
+    "thumbnail": "images/jordan-1-high.jpg",
+    "availableSizes": [7, 7.5, 8, 9, 10, 11.5],
+    "colors": ["#ad2c00", "#111111", "#ffffff"]
+  },
+  {
+    "id": "kicks-04",
+    "title": "NEW BALANCE 550 WHITE",
+    "brand": "NEW BALANCE",
+    "price": 110.00,
+    "thumbnail": "images/nb-550.jpg",
+    "availableSizes": [8, 9, 10, 11],
+    "colors": ["#ffffff", "#1a4d7c"]
+  },
+  {
+    "id": "kicks-05",
+    "title": "ADIDAS SAMBA OG",
+    "brand": "ADIDAS",
+    "price": 100.00,
+    "thumbnail": "images/adidas-samba.jpg",
+    "availableSizes": [7, 8, 8.5, 9, 10, 11, 12],
+    "colors": ["#111111", "#ffffff"]
+  },
+  {
+    "id": "kicks-06",
+    "title": "OFF-WHITE X DUNK LOW",
+    "brand": "NIKE",
+    "price": 450.00,
+    "thumbnail": "images/off-white-dunk.jpg",
+    "availableSizes": [8.5, 9, 9.5, 10],
+    "colors": ["#ffffff", "#111111", "#ad2c00"]
+  },
+  {
+    "id": "kicks-07",
+    "title": "ASICS GEL-KAYANO 14",
+    "brand": "ASICS",
+    "price": 150.00,
+    "thumbnail": "images/asics-gel.jpg",
+    "availableSizes": [8, 9, 10, 11, 12],
+    "colors": ["#e2e2e2", "#111111"]
+  },
+  {
+    "id": "kicks-08",
+    "title": "VANS OLD SKOOL BLACK",
+    "brand": "VANS",
+    "price": 65.00,
+    "thumbnail": "images/vans-old-skool.jpg",
+    "availableSizes": [7, 7.5, 8, 8.5, 9, 10, 11],
+    "colors": ["#111111", "#ffffff"]
+  },
+  {
+    "id": "kicks-09",
+    "title": "CONVERSE CHUCK 70",
+    "brand": "CONVERSE",
+    "price": 85.00,
+    "thumbnail": "images/chuck-70.jpg",
+    "availableSizes": [7, 8, 9, 10, 11],
+    "colors": ["#111111", "#ad2c00", "#ffffff"]
+  },
+  {
+    "id": "kicks-10",
+    "title": "SALOMON XT-6 ADV",
+    "brand": "SALOMON",
+    "price": 190.00,
+    "thumbnail": "images/salomon-xt6.jpg",
+    "availableSizes": [8, 9, 10, 11],
+    "colors": ["#111111", "#e2e2e2"]
+  },
+  {
+    "id": "kicks-11",
+    "title": "PUMA SUEDE CLASSIC",
+    "brand": "PUMA",
+    "price": 70.00,
+    "thumbnail": "images/puma-suede.jpg",
+    "availableSizes": [7, 8, 9, 10, 12],
+    "colors": ["#111111", "#ad2c00"]
+  },
+  {
+    "id": "kicks-12",
+    "title": "NIKE AIR MAX 97",
+    "brand": "NIKE",
+    "price": 175.00,
+    "thumbnail": "images/nike-am97.jpg",
+    "availableSizes": [8, 8.5, 9, 9.5, 10, 11],
+    "colors": ["#e2e2e2", "#111111"]
+  }
+]

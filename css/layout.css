@@ -1,17 +1,268 @@
-/* css/layout.css */
-/* HEADER */
+/* =========================================================
+   HEADER (THANH ĐIỀU HƯỚNG TRÊN CÙNG)
+   ========================================================= */
 .site-header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 24px 64px; background: rgba(249, 249, 249, 0.9);
-    position: sticky; top: 0; z-index: 100;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 24px 64px; 
+    
+    /* Làm mờ nền khi cuộn trang */
+    background: rgba(249, 249, 249, 0.95); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 1px solid #eee;
+    
+    /* Dính chặt lên trần nhà khi cuộn */
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
 }
-.main-nav a { margin: 0 16px; text-decoration: none; color: var(--on-surface); }
-.main-nav a:hover { color: var(--primary); }
 
-/* FOOTER */
-.site-footer { 
-    background-color: #1a1a1a; color: white; 
-    padding: 64px 64px 24px; margin-top: 80px; 
+.site-header .logo a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-decoration: none;
+    color: var(--on-surface);
 }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 40px; }
-/* ... copy nốt phần CSS cho footer vào đây ... */
+
+/* Các link menu ở giữa */
+.main-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.main-nav a { 
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--on-surface);
+    text-decoration: none; 
+    transition: color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active { 
+    color: var(--primary); /* Đổi màu cam khi di chuột vào */
+}
+
+/* Các icon góc phải (Search, User, Cart) */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-decoration: none;
+    color: var(--on-surface);
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Biểu tượng số lượng Giỏ hàng */
+.cart-btn {
+    position: relative;
+    padding-right: 8px; /* Chừa chỗ cho cục badge */
+}
+
+.cart-btn .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--primary);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important; /* Ép bo tròn */
+}
+
+
+/* =========================================================
+   MENU DROP-DOWN CỦA USER (HIỆN KHI RÊ CHUỘT VÀO AVATAR)
+   ========================================================= */
+.user-dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Xóa viền của 2 cái nút (Nút avatar và nút hình người) */
+.user-dropdown-wrapper button.header-user-avatar,
+.user-dropdown-wrapper button.header-auth-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.header-user-avatar {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50% !important;
+    text-align: center;
+    line-height: 32px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Cục Menu sổ xuống (Ẩn mặc định) */
+.user-dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 12px); /* Đẩy xuống bằng top thay vì margin */
+    right: 0; 
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    z-index: 1001;
+    flex-direction: column;
+}
+
+/* HIỆN MENU KHI DI CHUỘT (HOVER) VÀO VÙNG CHỨA */
+.user-dropdown-wrapper:hover .user-dropdown-menu {
+    display: flex;
+}
+
+/* Tạo 1 mũi tên nhỏ chĩa lên cho đẹp */
+.user-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #ddd;
+}
+.user-dropdown-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 12px; /* Đúng bằng khoảng cách đẩy xuống ở trên */
+    background: transparent; /* Hoàn toàn trong suốt */
+}
+
+/* Các dòng chữ lựa chọn bên trong Menu */
+.user-dropdown-menu a,
+.user-dropdown-menu button {
+    padding: 16px 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--on-surface);
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    transition: background 0.2s, color 0.2s;
+}
+
+.user-dropdown-menu a:hover,
+.user-dropdown-menu button:hover {
+    background-color: var(--on-surface);
+    color: white;
+}
+
+.user-dropdown-menu a:last-child,
+.user-dropdown-menu button:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   FOOTER (PHẦN CHÂN TRANG MÀU ĐEN)
+   ========================================================= */
+.site-footer { 
+    background-color: var(--on-surface); 
+    color: white; 
+    padding: 80px 64px 32px; 
+    margin-top: 100px; 
+}
+
+/* Lưới chia 4 cột */
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr 2fr; 
+    gap: 64px; 
+    border-bottom: 1px solid #333;
+    padding-bottom: 64px;
+    margin-bottom: 32px;
+}
+
+.footer-brand p {
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+/* Các cột Link */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-links h4,
+.footer-newsletter h4 {
+    color: #888; 
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+/* Cột Nhận bản tin (Newsletter Form) */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.newsletter-form input {
+    padding: 16px;
+    background: transparent;
+    border: 1px solid #555;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+.newsletter-form input:focus {
+    border-color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #555;
+}

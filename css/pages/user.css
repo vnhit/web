@@ -68,7 +68,7 @@
 
 /* Trạng thái Menu đang chọn (Active) theo chuẩn thiết kế */
 .menu-item.active {
-    background: var(--primary); /* Đỏ cam */
+    background: var(--primary); 
     color: white; 
 }
 
@@ -127,9 +127,6 @@
     border-bottom: 2px solid var(--primary);
     padding-bottom: 4px;
 }
-/* ==========================================
-   BỔ SUNG CSS CHO PHẦN RENDER TỪ JS
-   ========================================== */
 
 /* 1. Ảnh đại diện (Avatar) */
 .user-avatar {
@@ -180,4 +177,84 @@
     padding: 4px 12px; 
     font-size: 0.75rem; 
     font-weight: 700;
+}
+
+/* Chi tiết chữ trong hộp tên User */
+.user-tier-text {
+    margin-bottom: 4px;
+}
+
+.user-email-text {
+    text-transform: none; /* Giữ email ở dạng thường, ko in hoa */
+}
+
+/* Hộp trống khi chưa có đơn hàng */
+.empty-order-box {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.shop-now-btn {
+    margin-top: 16px;
+    display: inline-block;
+}
+
+/* Hộp Tổng quan Dashboard */
+.dashboard-overview-box {
+    padding: 32px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 32px;
+}
+
+.dashboard-greeting {
+    margin-bottom: 16px;
+}
+
+.dashboard-info {
+    margin-bottom: 8px;
+}
+
+/* Form chỉnh sửa Profile */
+.profile-form-wrapper {
+    max-width: 500px;
+    margin-top: 24px;
+}
+
+/* Ô nhập text cho Form */
+.form-input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ddd;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    background: var(--surface);
+    margin-top: 8px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+    background: white;
+}
+
+/* Ô nhập bị khóa (Dành cho Email) */
+.readonly-input {
+    background: #eaeaea;
+    color: #888;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+
+.readonly-input:focus {
+    border-color: #ddd; 
+    background: #eaeaea;
+}
+
+.btn-save-profile {
+    margin-top: 24px;
+    padding: 16px 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }

@@ -18,13 +18,17 @@ function initAuthTabs(){
 }
 document.addEventListener("DOMContentLoaded", () =>{
     initAuthTabs();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if(tabParam ==='register') document.querySelector('[data-target="register-section"]').click();
+    if(tabParam ==='login') document.querySelector('[data-target="login-section"]').click();
     const loginForms = document.getElementById('login-form');
     const registerForms = document.getElementById('register-form');
 
     if(registerForms){
         registerForms.addEventListener('submit', (e) =>{
             e.preventDefault();
-
             const name = document.getElementById('reg-name').value;
             const email = document.getElementById('reg-email').value;
             const password = document.getElementById('reg-password').value;

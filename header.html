@@ -1,14 +1,20 @@
 <header class="site-header">
-    <div class="logo">KICKS.</div>
+    <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: var(--on-surface);">KICKS.</a>
+    </div>
     <nav class="main-nav">
         <a href="index.html" class="active">MEN</a>
         <a href="#">WOMEN</a>
-        <a href="#">NEW RELEASES</a>
+        <a href="products.html">THE VAULT</a>
         <a href="#">SALE</a>
     </nav>
-    <div class="nav-actions">
+    <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
         <button class="icon-btn">🔍</button>
-        <button class="icon-btn">👤</button>
-        <button class="icon-btn cart-btn">🛒 <span class="badge">3</span></button>
+        
+        <div id="auth-action-area"></div>
+
+        <a href="cart.html" class="icon-btn cart-btn" style="text-decoration: none; color: var(--on-surface);">
+            🛒 <span class="badge" id="cart-badge">0</span>
+        </a>
     </div>
 </header>

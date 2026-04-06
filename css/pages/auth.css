@@ -1,6 +1,4 @@
-/* =========================================================
-   TRANG ĐĂNG NHẬP / ĐĂNG KÝ (AUTH PAGE)
-   ========================================================= */
+   /* TRANG ĐĂNG NHẬP / ĐĂNG KÝ (AUTH PAGE) */
 
 .auth-page {
     max-width: 1200px;
@@ -22,7 +20,7 @@
     border: 1px solid #ddd;
 }
 
-/* CSS cho 2 cái nút chuyển Tab */
+/*  chuyển Tab */
 .auth-tabs {
     display: flex;
     border-bottom: 1px solid #ddd;

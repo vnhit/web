@@ -1,3 +1,85 @@
+//header and footer
+async function loadLayout(){
+    const headerEl = document.getElementById('app-header');
+    const footerEl = document.getElementById('app-footer');
+
+    if(headerEl){
+        try{
+            const res = await fetch('header.html');
+            headerEl.innerHTML = await res.text();
+
+            checkLoginStatus();
+            updateCartBadge();
+        }catch(error){
+            console.error('Lỗi load header',error);
+        }
+    }
+
+    if(footerEl){
+        try{
+            const res = await fetch('footer.html');
+        footerEl.innerHTML = await res.text();
+        }catch(error){
+        console.error('Lỗi load footer',error);
+        }       
+    }
+} 
+// check login
+function checkLoginStatus(){
+    const authArea =document.getElementById('auth-action-area');
+    if(!authArea) return;
+
+    const user = JSON.parse(localStorage.getItem('kicks_logged_in_user'));
+
+    if(user){
+        const firstLetter = user.fullName.charAt(0).toUpperCase();
+        authArea.innerHTML=`
+            <div class="user-dropdown-wrapper">
+                <button class="header-user-avatar">${firstLetter}</button>
+                <div class="user-dropdown-menu">
+                    <a href="user-profile.html" class="header-user-link">Thông tin user</a>
+                    <button onclick="logoutUser()" class="header-logout-btn">LOGOUT</button>
+                </div>
+            </div>
+            
+        `;
+    }else{
+        authArea.innerHTML=`
+            <div class="user-dropdown-wrapper">
+                <button class="icon-btn header-auth-link">👤</button>
+                <div class="user-dropdown-menu">
+                    <a href="auth.html?tab=login">ĐĂNG NHẬP</a>
+                    <a href="auth.html?tab=register">ĐĂNG KÝ</a>
+                </div>
+            </div>
+        `;  
+    }
+}
+
+// logout
+function logoutUser(){
+    localStorage.removeItem('kicks_logged_in_user');
+    
+    window.location.href='index.html';
+}
+// update cart
+function updateCartBadge(){
+    const badge = document.getElementById('cart-badge');
+    if(!badge) return;
+    let cart = JSON.parse(localStorage.getItem('kicks_cart')) || [];
+    
+    let totalItems =0;
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
+
+    badge.textContent = totalItems;
+    if(totalItems ===0){
+        badge.style.display = 'none';
+    }else{
+        badge.style.display = 'flex';
+    }
+}
 // Card product
 function fetchAndRenderProducts(containerId ,limit) {
     const productList = document.getElementById( containerId);
@@ -34,14 +116,6 @@ function fetchAndRenderProducts(containerId ,limit) {
             productList.innerHTML = '<p class="body-md text-primary">Kết nối thất bại.</p>';           
         });
 }
-////=============================
-document.addEventListener("DOMContentLoaded", () =>{
-    fetchAndRenderProducts('product-list',0);
-    fetchAndRenderProducts('home-trending-list',5);
-    renderProductDetail();
-    renderHomeStaticContent();
-});
-//================================
 // Product detail
 function renderProductDetail(){
     const productDetail = document.getElementById('pdp-title');
@@ -108,6 +182,7 @@ function renderProductDetail(){
                 alert('Đã thêm sp');
                 }
                 localStorage.setItem('kicks_cart',JSON.stringify(cart));
+                updateCartBadge();
                 });
                 
             }
@@ -124,7 +199,7 @@ function renderHomeStaticContent(){
     if(!document.getElementById('hero-title')) return;
     document.getElementById('hero-title').innerHTML =`<span class="text-primary">PRECISION</span>`;
     document.getElementById('hero-subtitle').textContent ="Mẫu mã trẻ trung năng động";
-    document.getElementById('hero-buttons').innerHTML =`<a href="products.html class="btn btn-primary">SHOP</a>`;
+    document.getElementById('hero-buttons').innerHTML =`<a href="products.html" class="btn btn-primary">SHOP</a>`;
     document.getElementById('hero-image-container').innerHTML = `<img src="" alt="Hero">`;
 
     const ticker = document.getElementById('home-brand-ticker');
@@ -142,3 +217,12 @@ function renderHomeStaticContent(){
     document.getElementById('promo-link-text').href = "products.html";
 
 }
+////=============================
+document.addEventListener("DOMContentLoaded", () =>{
+    loadLayout();
+    fetchAndRenderProducts('product-list',0);
+    fetchAndRenderProducts('home-trending-list',5);
+    renderProductDetail();
+    renderHomeStaticContent();
+});
+//================================
