@@ -3,13 +3,16 @@
         <a href="index.html" style="text-decoration: none; color: var(--on-surface);">KICKS.</a>
     </div>
     <nav class="main-nav">
-        <a href="index.html" class="active">HOME</a>
+        <a href="index.html">HOME</a>
         <a href="products.html">PRODUCT</a>
         <a href="wishlist.html" class="nav-wishlist-link">WISHLIST</a>
         <a href="#">WOMEN</a>
     </nav>
     <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
-        <button class="icon-btn">🔍</button>
+        <div class="search-box">
+            <input type="text" id="global-search-input" placeholder="Search...">
+            <button class="icon-btn" id="global-search-btn">🔍</button>
+        </div>
         
         <div id="auth-action-area"></div>
 

@@ -18,7 +18,7 @@ function renderCartPage(){
 
         cartHTML +=`
             <div class="cart-item">
-                <div class="cart-item-images">
+                <div class="cart-item-image">
                     <img src="${item.images}" alt="${item.title}">
                 </div>
             <div class="cart-item-info">

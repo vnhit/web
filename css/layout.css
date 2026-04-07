@@ -266,3 +266,23 @@
     text-align: center;
     color: #555;
 }
+.search-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--on-surface);
+    padding-bottom: 2px;
+}
+
+#global-search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 120px;
+    font-family: 'Inter', sans-serif;
+    color: var(--on-surface);
+}
+
+#global-search-btn {
+    font-size: 1.1rem;
+    padding: 0 4px;
+}

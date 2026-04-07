@@ -17,10 +17,15 @@
 
     <main class="vault-page">
         <div class="page-header">
-            <div class="breadcrumb label-sm">HOME &gt; MEN'S FOOTWEAR</div>
             <div class="title-row">
                 <h1 class="display-lg">THE <span class="text-primary">VAULT.</span></h1>
-                <button class="sort-btn label-sm">NEWEST ARRIVALS <span>⌄</span></button>
+                <div class="sort-container">
+                <select id="price-sort-select" class="sort-dropdown">
+                <option value="default">MỚI NHẤT (NEWEST)</option>
+                <option value="price-asc">GIÁ TĂNG DẦN</option>
+                <option value="price-desc">GIÁ GIẢM DẦN</option>
+    </select>
+</div>
             </div>
         </div>
 

@@ -47,73 +47,6 @@
     min-height: 200px; /* Chiều cao tối thiểu khi rỗng */
 }
 
-/* --- STYLE CHỜ SẴN CHO SẢN PHẨM TRONG GIỎ --- */
-.cart-item {
-    display: flex;
-    align-items: center;
-    padding: 32px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.item-product {
-    flex: 2;
-    display: flex;
-    gap: 24px;
-}
-.item-img {
-    width: 120px;
-    height: 120px;
-    background: var(--surface-container-low);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.item-img img { width: 90%; object-fit: contain; }
-
-.item-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-}
-.item-brand { font-size: 0.6875rem; color: #888; text-transform: uppercase; font-weight: 600; }
-.item-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; text-transform: uppercase; }
-.item-meta { font-size: 0.875rem; color: #555; }
-.btn-remove { 
-    background: none; border: none; color: #888; font-family: 'Inter', sans-serif;
-    font-size: 0.75rem; text-decoration: underline; cursor: pointer; text-align: left;
-    margin-top: 8px;
-}
-.btn-remove:hover { color: var(--primary); }
-
-.item-quantity {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.qty-controls {
-    display: flex;
-    border: 1px solid #ddd;
-}
-.qty-btn {
-    width: 40px; height: 40px; background: white; border: none;
-    font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; cursor: pointer;
-}
-.qty-btn:hover { background: #f0f0f0; }
-.qty-input {
-    width: 40px; height: 40px; border: none; border-left: 1px solid #ddd; border-right: 1px solid #ddd;
-    text-align: center; font-family: 'Inter', sans-serif; font-weight: 600; outline: none;
-}
-
-.item-total {
-    flex: 1;
-    text-align: right;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
 /* ==========================================
    CỘT PHẢI: ORDER SUMMARY
    ========================================== */
@@ -157,11 +90,6 @@
     background: var(--on-surface); color: white; border: none;
     padding: 0 24px; font-family: 'Inter', sans-serif; font-weight: 700; cursor: pointer;
 }
-/* Cart List */
-/* ==========================================
-   CSS CHO TRANG GIỎ HÀNG
-   ========================================== */
-
 /* Báo lỗi khi giỏ hàng trống */
 .cart-empty-msg {
     padding: 40px 20px;
@@ -194,7 +122,7 @@
 .cart-item-image img {
     width: 100%; 
     height: 100%; 
-    object-fit: cover;
+    object-fit: contain;
 }
 
 /* Khu vực chứa thông tin (Tên, Giá, Số lượng) */

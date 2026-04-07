@@ -9,6 +9,8 @@ async function loadLayout(){
             headerEl.innerHTML = await res.text();
             checkLoginStatus();
             updateCartBadge();
+            setActiveNav(); 
+            initSearch();
         }catch(error){ console.error('Lỗi load header',error); }
     }
 
@@ -71,6 +73,37 @@ function updateCartBadge(){
         badge.style.display = 'flex';
     }
 }
+// atuo highlight
+function setActiveNav() {
+    const navLinks = document.querySelectorAll('.main-nav a');
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active'); 
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active'); 
+        }
+    });
+}
+
+// Tìm kiếm
+function initSearch() {
+    const searchInput = document.getElementById('global-search-input');
+    const searchBtn = document.getElementById('global-search-btn');
+    if (!searchInput || !searchBtn) return;
+
+    function executeSearch() {
+        const keyword = searchInput.value.trim();
+        if (keyword) {
+            window.location.href = `products.html?q=${encodeURIComponent(keyword)}`;
+        }
+    }
+
+    searchBtn.addEventListener('click', executeSearch);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') executeSearch();
+    });
+}
 
 // Home
 function renderHomeStaticContent(){
@@ -98,10 +131,20 @@ function renderHomeStaticContent(){
 let allVaultProducts = []; 
 let currentSizeFilter = null; 
 let currentGenderFilters = []; 
-
 let currentPage = 1;
 const itemsPerPage = 9;
-
+// sắp xếp 
+let currentSortOrder = 'default'; 
+document.addEventListener('DOMContentLoaded', () => {
+    const sortSelect = document.getElementById('price-sort-select');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+            currentSortOrder = e.target.value; 
+            currentPage = 1; 
+            applyFilters();  
+        });
+    }
+});
 // Thẻ sp
 function renderProductsGrid(products, containerId, limit = 0, emptyMessage = "KHÔNG TÌM THẤY SẢN PHẨM.") {
     const container = document.getElementById(containerId);
@@ -215,15 +258,31 @@ function setupFilterEvents() {
     });
 }
 
+    
 function applyFilters() {
-    let filteredList = allVaultProducts;
-
+    let filteredList = [...allVaultProducts];    
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('q');
+    if (searchQuery) {
+        const lowerQuery = searchQuery.toLowerCase();
+        filteredList = filteredList.filter(p => 
+            p.title.toLowerCase().includes(lowerQuery) || 
+            p.brand.toLowerCase().includes(lowerQuery)
+        );
+    }
     if (currentSizeFilter) {
         filteredList = filteredList.filter(p => p.availableSizes.includes(currentSizeFilter));
     }
 
     if (currentGenderFilters.length > 0) {
         filteredList = filteredList.filter(p => currentGenderFilters.includes(p.gender));
+    }
+    if (currentSortOrder === 'price-asc') {
+        // Giá tăng dần
+        filteredList.sort((a, b) => a.price - b.price);
+    } else if (currentSortOrder === 'price-desc') {
+        // Giá giảm dần
+        filteredList.sort((a, b) => b.price - a.price);
     }
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -334,8 +393,9 @@ function renderProductDetail() {
                 newBtn.addEventListener('click', () => {
                     const cartItemId = product.id + '-' + selectedSize + '-' + selectedColor.replace('#', '');
                     const cartItem = {
-                        id: product.id, 
-                        title: product.title, 
+                        id: cartItemId,
+                        baseId: product.id, 
+                        title: product.title + `(Size: ${selectedSize})`, 
                         price: product.price, 
                         images: product.thumbnail, 
                         quantity: 1

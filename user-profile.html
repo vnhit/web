@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
-    
     <link rel="stylesheet" href="css/pages/user.css">
 </head>
 <body style="background-color: #f9f9f9;">
@@ -18,30 +17,24 @@
     <main class="user-dashboard-layout">
         
         <aside class="user-sidebar">
-            
-            <div class="user-profile-summary" id="user-info-container">
-                </div>
+            <div class="user-profile-summary" id="user-info-container"></div>
 
             <nav class="sidebar-menu">
-                <button class="menu-item" data-target="tab-dashboard">
+                <button class="menu-item active" data-target="tab-dashboard">
                     <span class="icon">⊞</span> DASHBOARD
                 </button>
                 <button class="menu-item" data-target="tab-profile">
                     <span class="icon">⚙</span> PROFILE SETTINGS
                 </button>
-                <button class="menu-item active" data-target="tab-orders">
+                <button class="menu-item " data-target="tab-orders">
                     <span class="icon">📦</span> ORDER HISTORY
                 </button>
-                <button class="menu-item" data-target="tab-wishlist">
-                    <span class="icon">♥</span> WISHLIST
-                </button>
-            </nav>
-
+                </nav>
         </aside>
 
         <section class="user-content">
             
-            <div id="tab-dashboard" class="tab-content" style="display: none;">
+            <div id="tab-dashboard" class="tab-content" style="display: block;">
                 <div class="content-header">
                     <h1 class="display-lg">DASHBOARD</h1>
                     <p class="body-md text-gray">OVERVIEW OF YOUR ACCOUNT.</p>
@@ -54,32 +47,62 @@
                     <h1 class="display-lg">PROFILE SETTINGS</h1>
                     <p class="body-md text-gray">MANAGE YOUR PERSONAL DETAILS.</p>
                 </div>
-                <div id="profile-form-container" style="min-height: 300px; background: white;"></div>
+                
+                <form id="profile-form" class="user-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>HỌ VÀ TÊN</label>
+                            <input type="text" id="user-name" value="anh anh">
+                        </div>
+                        <div class="form-group">
+                            <label>SỐ ĐIỆN THOẠI</label>
+                            <input type="tel" id="user-phone" placeholder="Nhập số điện thoại">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>EMAIL (KHÔNG THỂ ĐỔI)</label>
+                        <input type="email" id="user-email" value="a@gmail.com" disabled style="background: #f5f5f5;">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ĐỊA CHỈ NHẬN HÀNG</label>
+                        <textarea id="user-address" rows="3" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành phố..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>MẬT KHẨU MỚI (Để trống nếu không đổi)</label>
+                        <input type="password" id="user-password" placeholder="••••••••">
+                    </div>
+
+                    <button type="button" class="btn-primary" style="margin-top: 16px;">LƯU THAY ĐỔI</button>
+                </form>
             </div>
 
-            <div id="tab-orders" class="tab-content" style="display: block;">
+            <div id="tab-orders" class="tab-content" style="display: none;">
                 <div class="content-header">
                     <h1 class="display-lg">ORDER HISTORY</h1>
                     <p class="body-md text-gray">REVIEW AND TRACK YOUR RECENT STREET ACQUISITIONS.</p>
                 </div>
 
                 <div class="stats-grid">
-                    <div class="stat-box">
-                        <span class="label-sm text-gray">TOTAL SPENT</span>
-                        <h2 class="stat-value" id="stat-total-spent"></h2> 
+                    <div class="stat-card">
+                        <span class="stat-label">TOTAL SPENT</span>
+                        <span class="stat-value" id="stat-total-spent">$0.00</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="label-sm text-gray">ACTIVE SHIPMENTS</span>
-                        <h2 class="stat-value" id="stat-active-shipments"></h2>
+                    <div class="stat-card">
+                        <span class="stat-label">ACTIVE SHIPMENTS</span>
+                        <span class="stat-value" id="stat-active-shipments">0</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="label-sm text-gray">LOYALTY TIER</span>
-                        <h2 class="stat-value text-primary" id="stat-loyalty-tier"></h2>
+                    <div class="stat-card">
+                        <span class="stat-label">LOYALTY TIER</span>
+                        <span class="stat-value text-primary" id="stat-loyalty-tier">New</span>
                     </div>
                 </div>
 
-                <div class="orders-container" id="user-order-list">
-                    </div>
+                <div class="order-list-container">
+                    <p class="text-gray">Bạn chưa có đơn hàng nào. <a href="products.html" style="color: #ba2d11;">Mua sắm ngay</a></p>
+                </div>
 
                 <div class="missing-something">
                     <div>
@@ -90,20 +113,11 @@
                 </div>
             </div>
 
-            <div id="tab-wishlist" class="tab-content" style="display: none;">
-                <div class="content-header">
-                    <h1 class="display-lg">WISHLIST</h1>
-                    <p class="body-md text-gray">YOUR SAVED STREETWEAR ESSENTIALS.</p>
-                </div>
-                <div id="wishlist-grid" style="min-height: 300px; background: white;"></div>
-            </div>
-
-        </section>
-
+            </section>
     </main>
 
     <div id="app-footer"></div>
-    <script src="/js/main.js"></script>
-    <script src="/js/user.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>

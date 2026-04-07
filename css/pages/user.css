@@ -1,135 +1,40 @@
 /* =========================================================
-   TRANG USER (DASHBOARD, TABS)
+   BỐ CỤC CHUNG (LAYOUT)
    ========================================================= */
-
-.user-dashboard-layout {
-    display: flex;
-    max-width: 1400px;
-    margin: 40px auto 100px;
-    padding: 0 64px;
-    gap: 64px;
-    align-items: flex-start;
+.user-dashboard-layout { 
+    display: flex; 
+    max-width: 1400px; 
+    margin: 40px auto 100px; 
+    padding: 0 64px; 
+    gap: 64px; 
+    align-items: flex-start; 
 }
-
 .text-gray { color: #888; }
-
-/* --- CỘT TRÁI: SIDEBAR & MENU --- */
-.user-sidebar {
-    width: 250px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 100px; 
-}
-
-.user-profile-summary {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 32px;
-    min-height: 80px; 
-}
-
-.sidebar-menu {
-    display: flex;
-    flex-direction: column;
-}
-
-/* Nút Menu Cột Trái */
-.menu-item {
-    padding: 18px 20px;
-    background: transparent;
-    border: none;
-    color: #555; /* Xám đậm */
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.2s, color 0.2s;
-}
-
-.menu-item .icon { 
-    font-size: 1.2rem; 
-    width: 24px; 
-    text-align: center; 
-}
-
-/* Hover mờ nhẹ */
-.menu-item:hover { 
-    background: #eaeaea; 
-}
-
-/* Trạng thái Menu đang chọn (Active) theo chuẩn thiết kế */
-.menu-item.active {
-    background: var(--primary); 
-    color: white; 
-}
-
-
-/* --- CỘT PHẢI: NỘI DUNG RUỘT --- */
-.user-content {
-    flex-grow: 1;
-}
-
 .content-header { margin-bottom: 40px; }
 .content-header .display-lg { font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 8px; }
+.user-content { flex-grow: 1; }
 
-/* Khối thống kê Order History */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 48px;
+/* =========================================================
+   CỘT TRÁI (SIDEBAR & MENU)
+   ========================================================= */
+.user-sidebar { 
+    width: 250px; 
+    flex-shrink: 0; 
+    display: flex; 
+    flex-direction: column; 
+    position: sticky; 
+    top: 100px; 
 }
-.stat-box {
-    background: #eaeaea;
-    padding: 32px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.user-profile-summary { 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    padding-bottom: 32px; 
+    border-bottom: 1px solid #ddd; 
+    margin-bottom: 32px; 
+    min-height: 80px; 
 }
-.stat-value {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    min-height: 40px; 
-}
-
-/* Khung chờ danh sách Order */
-.orders-container {
-    background: white;
-    min-height: 200px; 
-    padding: 0 32px;
-}
-
-/* Missing Something */
-.missing-something {
-    margin-top: 80px;
-    padding-top: 40px;
-    border-top: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.missing-something p { max-width: 600px; margin-top: 16px; }
-.link-primary-bold {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 4px;
-}
-
-/* 1. Ảnh đại diện (Avatar) */
-.user-avatar {
+.user-avatar { 
     width: 48px; 
     height: 48px; 
     border-radius: 50%; 
@@ -140,136 +45,224 @@
     justify-content: center; 
     font-family: 'Space Grotesk', sans-serif; 
     font-size: 1.2rem; 
-    font-weight: 700;
+    font-weight: 700; 
 }
-
-.user-name-box h3 {
-    font-size: 1rem; 
-    margin-bottom: 4px;
-}
-
-/* 2. Item Lịch sử đơn hàng (Order List) */
-.order-item {
-    padding: 24px 0; 
-    border-bottom: 1px solid #ddd; 
+.user-name-box h3 { font-size: 1rem; margin-bottom: 4px; }
+.sidebar-menu { display: flex; flex-direction: column; }
+.menu-item { 
+    padding: 18px 20px; 
+    background: transparent; 
+    border: none; 
+    color: #555; 
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700; 
+    font-size: 0.85rem; 
     display: flex; 
-    justify-content: space-between; 
-    align-items: center;
+    align-items: center; 
+    gap: 16px; 
+    cursor: pointer; 
+    text-align: left; 
+    transition: background 0.2s, color 0.2s; 
 }
+.menu-item .icon { font-size: 1.2rem; width: 24px; text-align: center; }
+.menu-item:hover { background: #eaeaea; }
+.menu-item.active { background: var(--primary); color: white; }
 
-.order-info h4 {
-    margin: 8px 0; 
-    font-size: 1.1rem;
+/* Dashboard Box */
+.dashboard-overview-box { 
+    padding: 32px; 
+    background: #f9f9f9; 
+    border: 1px solid #ddd; 
+    margin-bottom: 32px; 
 }
+.dashboard-greeting { margin-bottom: 16px; }
+.dashboard-info { margin-bottom: 8px; }
 
-.order-status {
-    text-align: right;
+/* =========================================
+   FORM PROFILE SETTINGS
+   ========================================= */
+.user-form { 
+    max-width: 800px; 
 }
-
-.order-status p {
-    margin-bottom: 8px;
+.form-row { 
+    display: flex; 
+    gap: 24px; 
 }
-
-/* 3. Nút trạng thái giao hàng */
-.badge-delivered {
-    background: #e8f5e9; 
-    color: #2e7d32; 
-    padding: 4px 12px; 
-    font-size: 0.75rem; 
-    font-weight: 700;
+.form-row .form-group { 
+    flex: 1; 
 }
-
-/* Chi tiết chữ trong hộp tên User */
-.user-tier-text {
-    margin-bottom: 4px;
+.form-group { 
+    margin-bottom: 24px; 
+    display: flex; 
+    flex-direction: column; 
 }
-
-.user-email-text {
-    text-transform: none; /* Giữ email ở dạng thường, ko in hoa */
+.form-group label { 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+    color: #111; 
 }
-
-/* Hộp trống khi chưa có đơn hàng */
-.empty-order-box {
-    padding: 40px 0;
-    text-align: center;
-}
-
-.shop-now-btn {
-    margin-top: 16px;
-    display: inline-block;
-}
-
-/* Hộp Tổng quan Dashboard */
-.dashboard-overview-box {
-    padding: 32px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 32px;
-}
-
-.dashboard-greeting {
-    margin-bottom: 16px;
-}
-
-.dashboard-info {
-    margin-bottom: 8px;
-}
-
-/* Form chỉnh sửa Profile */
-.profile-form-wrapper {
-    max-width: 500px;
-    margin-top: 24px;
-}
-
-/* Ô nhập text cho Form */
-.form-input {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #ddd;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+.form-group input, 
+.form-group textarea {
+    padding: 16px; 
+    border: 1px solid #ddd; 
     outline: none;
-    background: var(--surface);
-    margin-top: 8px;
-    transition: border-color 0.2s, background 0.2s;
+    font-family: 'Inter', sans-serif; 
+    font-size: 1rem; 
+    width: 100%;
 }
-
-.form-input:focus {
-    border-color: var(--primary);
-    background: white;
+.form-group input:focus, 
+.form-group textarea:focus { 
+    border-color: #111; 
 }
-
-/* Ô nhập bị khóa (Dành cho Email) */
-.readonly-input {
-    background: #eaeaea;
+.form-group input:disabled {
+    background: #f5f5f5;
     color: #888;
     cursor: not-allowed;
-    border-color: #ddd;
+}
+.btn-primary { 
+    background: #ba2d11; 
+    color: #fff; 
+    border: none; 
+    padding: 16px 32px; 
+    font-weight: 700; 
+    cursor: pointer; 
+}
+.btn-primary:hover { 
+    background: #a0250e; 
 }
 
-.readonly-input:focus {
-    border-color: #ddd; 
-    background: #eaeaea;
+/* =========================================
+   ORDER HISTORY CARDS & THỐNG KÊ
+   ========================================= */
+.stats-grid { 
+    display: flex; 
+    gap: 24px; 
+    margin-bottom: 40px; 
+}
+.stat-card { 
+    flex: 1; 
+    background: #f5f5f5; 
+    padding: 24px; 
+    border-radius: 4px; 
+    display: flex; 
+    flex-direction: column; 
+}
+.stat-label { 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    color: #777; 
+    text-transform: uppercase; 
+    margin-bottom: 8px; 
+}
+.stat-value { 
+    font-size: 2rem; 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-weight: 700; 
+    color: #111; 
 }
 
-.btn-save-profile {
-    margin-top: 24px;
-    padding: 16px 32px;
-    font-weight: 700;
-    letter-spacing: 1px;
+.order-list-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 24px; 
+}
+.order-card { 
+    border: 1px solid #eee; 
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+.order-header { 
+    background: #f9f9f9; 
+    padding: 16px 24px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #eee; 
+}
+.order-id { 
+    font-weight: 700; 
+    margin-right: 16px; 
+}
+.order-date { 
+    color: #777; 
+    font-size: 0.9rem; 
+}
+.order-status { 
+    padding: 6px 12px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 700; 
+}
+.status-shipping { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+.status-completed { 
+    background: #d4edda; 
+    color: #155724; 
+}
+.order-body { 
+    padding: 24px; 
+}
+.order-item-mini { 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+}
+.order-item-mini img { 
+    width: 80px; 
+    height: 80px; 
+    object-fit: contain; 
+    background: #f5f5f5; 
+    border-radius: 4px; 
+    padding: 8px; 
+}
+.oi-info { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+}
+.oi-price { 
+    font-weight: 700; 
+    font-size: 1.1rem; 
+}
+.order-footer { 
+    padding: 16px 24px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-top: 1px solid #eee; 
+}
+.btn-outline-sm { 
+    border: 1px solid #111; 
+    background: transparent; 
+    padding: 8px 16px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: all 0.2s; 
+}
+.btn-outline-sm:hover { 
+    background: #111; 
+    color: white; 
 }
 
-.btn-remove-wishlist {
-    background: none;
-    border: none;
-    color: #888;
-    text-decoration: underline;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    cursor: pointer;
-    text-align: left;
-    padding: 0;
-    transition: color 0.2s;
+/* Missing Something */
+.missing-something { 
+    margin-top: 80px; 
+    padding-top: 40px; 
+    border-top: 1px solid #ddd; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
 }
-
-.btn-remove-wishlist:hover { color: #ff4747; }
+.missing-something p { max-width: 600px; margin-top: 16px; }
+.link-primary-bold { 
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700; 
+    color: var(--primary); 
+    text-decoration: none; 
+    border-bottom: 2px solid var(--primary); 
+    padding-bottom: 4px; 
+}
