@@ -21,11 +21,27 @@
 }
 .sort-btn:hover { background: #e2e2e2; }
 
-/* --- BỐ CỤC CHÍNH --- */
-.plp-layout { display: flex; gap: 64px; align-items: flex-start; }
+/* --- BỐ CỤC CHÍNH (CÓ STICKY SIDEBAR) --- */
+.plp-layout { 
+    display: flex; 
+    gap: 64px; 
+    align-items: flex-start; 
+    position: relative; /* Bắt buộc cho thanh trượt */
+}
 
-/* --- CỘT TRÁI: SIDEBAR BỘ LỌC --- */
-.sidebar-filters { width: 220px; flex-shrink: 0; }
+/* --- CỘT TRÁI: SIDEBAR BỘ LỌC TRƯỢT THEO --- */
+.sidebar-filters { 
+    width: 220px; 
+    flex-shrink: 0; 
+    position: sticky; 
+    top: 100px; /* Cách header */
+    height: max-content; 
+    max-height: calc(100vh - 120px); 
+    overflow-y: auto; 
+}
+.sidebar-filters::-webkit-scrollbar { width: 4px; }
+.sidebar-filters::-webkit-scrollbar-thumb { background: #ddd; border-radius: 4px !important; }
+
 .filter-header { margin-bottom: 32px; }
 .filter-group { border-top: 1px solid #ddd; padding: 24px 0; }
 .filter-title {
@@ -58,7 +74,7 @@
 .slider-fill { height: 100%; background: var(--primary); position: absolute; left: 0; }
 .slider-thumb {
     width: 12px; height: 12px; background: var(--primary);
-    border-radius: 50% !important; /* Ngoại lệ bo tròn duy nhất cho cái chấm kéo */
+    border-radius: 50% !important; 
     position: absolute; top: -5px; cursor: pointer;
 }
 .price-labels { display: flex; justify-content: space-between; color: #555; }
@@ -69,16 +85,53 @@
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 64px;
 }
 
-/* =========================================================
-   STYLE CHO THẺ SẢN PHẨM (DÙNG KHI CẬU NHÉT RUỘT VÀO)
-   ========================================================= */
-.vault-card { display: flex; flex-direction: column; cursor: pointer;}
-.vault-card .card-image {
-    background: #e2e2e2; height: 320px; display: flex; align-items: center; justify-content: center;
-    position: relative; margin-bottom: 16px; overflow: hidden;
+/* Khi bộ lọc không tìm thấy sản phẩm */
+.empty-filter-msg {
+    grid-column: 1 / -1; 
+    text-align: center;
+    padding: 80px 0;
+    background: var(--surface-container-low);
+    border: 1px dashed #ccc;
 }
-.vault-card .card-image img { width: 85%; object-fit: contain; transition: transform 0.4s ease; }
-.vault-card:hover .card-image img { transform: scale(1.08) rotate(-2deg); }
+.empty-filter-msg .headline-sm {
+    margin-bottom: 8px;
+}
+
+/* =========================================================
+   STYLE CHO THẺ SẢN PHẨM (XÓA CHỮ TÍM, THÊM HOVER)
+   ========================================================= */
+.vault-card { 
+    display: flex; 
+    flex-direction: column; 
+    cursor: pointer;
+    text-decoration: none !important; 
+    color: var(--on-surface); 
+    transition: transform 0.2s ease;
+}
+
+.vault-card:hover {
+    transform: translateY(-8px);
+}
+
+.vault-card .card-image {
+    background: #f5f5f5; 
+    aspect-ratio: 1 / 1; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 16px; 
+    overflow: hidden;
+}
+
+.vault-card .card-image img { 
+    width: 85%; 
+    object-fit: contain; 
+    transition: transform 0.4s ease; 
+}
+
+.vault-card:hover .card-image img { 
+    transform: scale(1.08) rotate(-2deg); 
+}
 
 /* Tags trên ảnh (Ví dụ: LIMITED EDITION, NEW DROP) */
 .tag {
@@ -89,9 +142,34 @@
 .tag-primary { background: var(--primary); }
 
 /* Text thẻ sản phẩm */
-.card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.vault-card .product-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; text-transform: uppercase; }
-.vault-card .price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--primary); }
+.card-meta { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 8px; 
+}
+
+.pdp-brand-text {
+    color: #888;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.vault-card .price { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-weight: 700; 
+    color: var(--primary); 
+    text-decoration: none;
+}
+
+.vault-card .product-title { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-size: 1.1rem; 
+    text-transform: uppercase; 
+    color: var(--on-surface);
+    text-decoration: none;
+    line-height: 1.4;
+}
 
 /* --- PHÂN TRANG (PAGINATION) --- */
 .pagination { display: flex; justify-content: center; gap: 8px; }
@@ -104,3 +182,41 @@
 .page-btn.next-btn { width: auto; padding: 0 16px; gap: 8px; }
 .page-btn:hover { border-color: var(--on-surface); }
 .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+/* Nút Trái Tim Yêu Thích trên thẻ sản phẩm */
+.heart-wishlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50% !important;
+    font-size: 1.1rem;
+    color: #ccc; /* Trái tim xám mặc định */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, color 0.2s;
+    z-index: 10;
+}
+
+.heart-wishlist-btn:hover {
+    transform: scale(1.15);
+}
+
+.heart-wishlist-btn.wished {
+    color: #ff4747; /* Đổi màu Đỏ khi đã thả tim */
+}
+.wishlist-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.wishlist-grid-layout {
+    min-height: 400px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
