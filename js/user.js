@@ -27,7 +27,7 @@ function renderUserProfile(){
     if(!userInfoContainer) return;
     let user = JSON.parse(localStorage.getItem('kicks_logged_in_user'));
     if(!user){
-        alert('Bạn cần đăng nhập');
+        showToast('Bạn cần đăng nhập','error');
         window.location.href = 'auth.html?tab=login';
         return;
     }
@@ -93,7 +93,7 @@ function renderUserProfile(){
                 localStorage.setItem('kicks_user_list', JSON.stringify(usersList));
             }
 
-            alert("✅ Cập nhật thông tin thành công!");
+            showToast("✅ Cập nhật thông tin thành công!",'success');
             window.location.reload();
         };
     }

@@ -1,6 +1,11 @@
 .btn-primary {
-    background-color: var(--primary); color: white;
-    padding: 12px 24px; border: none; cursor: pointer;
+    background-color: var(--primary); 
+    color: white;
+    padding: 12px 24px; 
+    text-decoration: none; 
+    display: inline-block;
+    border: none; 
+    cursor: pointer;
 }
 .btn-primary:hover { background-color: #8a2300; }
 
@@ -21,4 +26,92 @@
     height: 100%;
     object-fit: contain; 
     mix-blend-mode: darken; 
+}
+/* thông báo */
+/* =========================================================
+   TOAST MESSAGE (SINGLE LINE - HIỆN Ở GIỮA, FADE OUT)
+   ========================================================= */
+#toast-container {
+    position: fixed;
+    /* Căn ra chính giữa màn hình */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    pointer-events: none; /* Không chặn click chuột của trang web */
+    align-items: center;
+}
+
+.toast {
+    display: flex;
+    flex-direction: row; /* <--- CHUYỂN SANG NẰM CÙNG 1 HÀNG */
+    align-items: center;
+    justify-content: center;
+    gap: 16px; /* Khoảng cách giữa icon và chữ */
+    min-width: 320px;
+    background: rgba(0, 0, 0, 0.85); /* Nền đen mờ sang trọng */
+    color: white;
+    padding: 16px 28px; /* Điều chỉnh padding cho single line */
+    border-radius: 12px !important; /* Bo góc mềm mại hơn */
+    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    
+    /* Bỏ viền cũ */
+    border: none;
+    
+    /* Hiệu ứng nảy lên và rõ dần lúc mới xuất hiện */
+    animation: fadeInScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* thông báo */
+.toast-icon { 
+    font-size: 1.5rem; 
+    line-height: 1;
+    color: white; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%; 
+    background-color: #4caf50; 
+    flex-shrink: 0; 
+}
+
+.toast-error .toast-icon {
+    background-color: #d32f2f; 
+}
+.toast-msg {
+    flex: 1; 
+}
+
+.toast-fadeout {
+    animation: fadeOutScale 0.4s ease-in forwards;
+}
+@keyframes fadeInScale {
+    from { 
+        transform: scale(0.8) translateY(20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1) translateY(0); 
+        opacity: 1; 
+    }
+}
+@keyframes fadeOutScale {
+    from { 
+        transform: scale(1) translateY(0); 
+        opacity: 1; 
+    }
+    to { 
+        transform: scale(0.9) translateY(-20px); 
+        opacity: 0; 
+    }
 }

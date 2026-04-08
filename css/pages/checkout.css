@@ -1,0 +1,179 @@
+
+.checkout-page { 
+    max-width: 1400px; 
+    margin: 64px auto 120px; 
+    padding: 0 64px; 
+}
+
+.page-header { 
+    margin-bottom: 48px; 
+    border-bottom: 4px solid var(--on-surface); 
+    padding-bottom: 24px; 
+}
+
+/* Bố cục 2 cột (Trái to - Phải nhỏ) */
+.checkout-layout { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 80px; 
+    align-items: flex-start; 
+}
+
+/* Cột Trái: Form */
+.checkout-form { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.form-row { 
+    display: flex; 
+    gap: 24px; 
+}
+
+.form-row .input-group { 
+    flex: 1; 
+}
+
+.input-group { 
+    margin-bottom: 24px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.input-group label { 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    margin-bottom: 8px; 
+    color: #111; 
+}
+
+.input-group input, 
+.input-group textarea { 
+    padding: 16px; 
+    border: 1px solid #ddd; 
+    outline: none; 
+    font-family: 'Inter', sans-serif; 
+    font-size: 1rem; 
+    width: 100%; 
+}
+
+.input-group input:focus, 
+.input-group textarea:focus { 
+    border-color: var(--primary); 
+}
+
+/* Các class thay thế cho Inline Style cũ */
+.form-section-title { 
+    margin-bottom: 24px; 
+}
+
+.mt-40 { 
+    margin-top: 40px; 
+}
+
+.btn-checkout-submit { 
+    margin-top: 32px; 
+    font-size: 1.1rem; 
+    padding: 24px; 
+}
+
+.summary-title { 
+    margin-bottom: 24px; 
+}
+
+/* Box Phương thức thanh toán */
+.payment-methods { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+}
+
+.payment-method { 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: all 0.2s; 
+}
+
+.payment-method:has(input:checked) { 
+    border: 2px solid var(--primary); 
+    background: #fff5f3; 
+}
+
+/* Cột Phải: Order Summary */
+.checkout-summary-section { 
+    position: sticky; 
+    top: 100px; 
+}
+
+.summary-box { 
+    background: white; 
+    padding: 40px; 
+    border: 1px solid #ddd; 
+}
+
+.checkout-items { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+    max-height: 400px; 
+    overflow-y: auto; 
+    padding-right: 8px; 
+}
+
+.co-item-mini { 
+    display: flex; 
+    align-items: center; 
+    gap: 16px; 
+    padding-bottom: 16px; 
+    border-bottom: 1px solid #eee; 
+}
+
+.co-item-img { 
+    width: 80px; 
+    height: 80px; 
+    background: #f5f5f5; 
+    border-radius: 4px; 
+    padding: 8px; 
+}
+
+.co-item-img img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    mix-blend-mode: darken; 
+}
+
+.co-item-info { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+}
+
+.co-item-title { 
+    font-weight: 700; 
+    font-size: 0.95rem; 
+}
+
+.summary-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 16px; 
+    align-items: center; 
+}
+
+.summary-divider { 
+    height: 1px; 
+    background-color: #ddd; 
+    margin: 24px 0; 
+}
+
+.total-row { 
+    margin-bottom: 0; 
+    align-items: flex-end; 
+}

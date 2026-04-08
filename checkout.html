@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KICKS. | Checkout</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/checkout.css">
+</head>
+<body>
+
+    <div id="app-header"></div>
+
+    <main class="checkout-page">
+        <div class="page-header">
+            <h1 class="display-lg">CHECKOUT.</h1>
+            <p class="body-md text-gray">HOÀN TẤT ĐƠN HÀNG CỦA BẠN.</p>
+        </div>
+
+        <div class="checkout-layout">
+            
+            <section class="checkout-form-section">
+                <h2 class="headline-sm form-section-title">THÔNG TIN GIAO HÀNG</h2>
+                <form id="checkout-form" class="checkout-form">
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>HỌ VÀ TÊN</label>
+                            <input type="text" id="co-name" required placeholder="Nhập họ và tên">
+                        </div>
+                        <div class="input-group">
+                            <label>SỐ ĐIỆN THOẠI</label>
+                            <input type="tel" id="co-phone" required placeholder="Nhập số điện thoại">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>EMAIL</label>
+                        <input type="email" id="co-email" required placeholder="Nhập email liên hệ">
+                    </div>
+
+                    <div class="input-group">
+                        <label>ĐỊA CHỈ NHẬN HÀNG</label>
+                        <textarea id="co-address" rows="3" required placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện..."></textarea>
+                    </div>
+
+                    <h2 class="headline-sm form-section-title mt-40">PHƯƠNG THỨC THANH TOÁN</h2>
+                    <div class="payment-methods">
+                        <label class="payment-method active">
+                            <input type="radio" name="payment" value="COD" checked>
+                            <span>Thanh toán khi nhận hàng (COD)</span>
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="payment" value="BANK">
+                            <span>Chuyển khoản ngân hàng</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full btn-checkout-submit">XÁC NHẬN ĐẶT HÀNG</button>
+                </form>
+            </section>
+
+            <aside class="checkout-summary-section">
+                <div class="summary-box">
+                    <h2 class="headline-sm summary-title">ORDER SUMMARY</h2>
+                    
+                    <div id="checkout-item-list" class="checkout-items">
+                        </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Tạm tính</span>
+                        <span class="font-bold" id="co-subtotal">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Phí vận chuyển</span>
+                        <span class="text-gray">Miễn phí</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total-row">
+                        <span class="headline-sm">TỔNG CỘNG</span>
+                        <span class="display-sm text-primary" id="co-total">$0.00</span>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div id="app-footer"></div>
+
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>

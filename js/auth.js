@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             const isExist = userList.find(u => u.email == email);
             if(isExist){
-                alert('Email đẫ tồn tại');
+                showToast('Email đẫ tồn tại','error');
                 return;
             }
             const newUser ={
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
             userList.push(newUser);
             localStorage.setItem('kicks_user_list', JSON.stringify(userList));
-            alert('Đăng ký thành công');
+            showToast('Đăng ký thành công','success');
             registerForms.reset();
             document.querySelector('[data-target="login-section"]').click();
         });
@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", () =>{
             const user = userList.find(u => u.email === email && u.password === password);
             if(user){
                 localStorage.setItem('kicks_logged_in_user', JSON.stringify(user));
-                alert("Đăng nhập thành công! Chào mừng " + user.fullName);
+                showToast("Đăng nhập thành công! Chào mừng " + user.fullName,'success');
                 window.location.href ='index.html';
             }else{
-                alert("Đăng nhập thất bại");
+                showToast("Đăng nhập thất bại",'error');
             }
         });
     }

@@ -111,7 +111,7 @@ function renderHomeStaticContent(){
     document.getElementById('hero-title').innerHTML =`<span class="text-primary">PRECISION</span>`;
     document.getElementById('hero-subtitle').textContent ="Mẫu mã trẻ trung năng động";
     document.getElementById('hero-buttons').innerHTML =`<a href="products.html" class="btn btn-primary">SHOP</a>`;
-    document.getElementById('hero-image-container').innerHTML = `<img src="" alt="Hero">`;
+    document.getElementById('hero-image-container').innerHTML = `<img src="assets/images/banners/Hero.png" alt="Hero">`;
 
     const ticker = document.getElementById('home-brand-ticker');
     if(ticker){
@@ -119,11 +119,11 @@ function renderHomeStaticContent(){
         ticker.innerHTML = brand.map(b => `<span>${b}</span>`).join(' . ').repeat(5);
     }
 
-    document.getElementById('promo-image-container').innerHTML = `<img src="" alt="Promo Shoe">`;
-    document.getElementById('promo-tag').textContent ="LIMITED EDITION";
-    document.getElementById('promo-title').textContent = "HOT" ;
-    document.getElementById('promo-desc').textContent = "";
-    document.getElementById('promo-link-text').textContent = "EXPLORE THE LOOKBOOK";
+    document.getElementById('promo-image-container').innerHTML = `<img src="assets/images/banners/Promo-Shoe.png" alt="Promo Shoe">`;
+    document.getElementById('promo-tag').textContent ="THE KICKS. GUARANTEE";
+    document.getElementById('promo-title').textContent = "100% AUTHENTIC" ;
+    document.getElementById('promo-desc').textContent = "Không chỉ bán giày, chúng tôi tôn vinh văn hóa sát mặt đất. Mỗi đôi Sneaker tại KICKS. đều trải qua quy trình kiểm định nghiêm ngặt nhiều bước, cam kết mang đến tay bạn sản phẩm chính hãng, nguyên bản với mức giá tốt nhất.";
+    document.getElementById('promo-link-text').textContent = "MUA GIÀY CHÍNH HÃNG";
     document.getElementById('promo-link-text').href = "products.html";
 }
 
@@ -353,7 +353,7 @@ function renderProductDetail() {
             let sizeHTML = '';
             product.availableSizes.forEach((size, index) => {
                 const activeClass = (index === 0) ? 'active' : '';
-                sizeHTML += `<button class="size-btn ${activeClass} data-size="${size}">US ${size}</button>`;
+                sizeHTML += `<button class="size-btn ${activeClass}" data-size="${size}">US ${size}</button>`;
             });
             const sizeGrid = document.getElementById('pdp-size-grid');
             sizeGrid.innerHTML = sizeHTML;
@@ -362,8 +362,8 @@ function renderProductDetail() {
             sizeBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     sizeBtns.forEach(b => b.classList.remove('active')); 
-                    e.target.classList.add('active'); 
-                    selectedSize = e.target.getAttribute('data-size'); 
+                    btn.classList.add('active'); 
+                    selectedSize = btn.getAttribute('data-size'); 
                 });
             });
             let colorHTML = '';
@@ -379,8 +379,8 @@ function renderProductDetail() {
             colorBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     colorBtns.forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    selectedColor = e.target.getAttribute('data-color');
+                    btn.classList.add('active');
+                    selectedColor = btn.getAttribute('data-color');
                     document.getElementById('pdp-selected-color').textContent = selectedColor; // Cập nhật text mã màu
                 });
             });
@@ -395,7 +395,7 @@ function renderProductDetail() {
                     const cartItem = {
                         id: cartItemId,
                         baseId: product.id, 
-                        title: product.title + `(Size: ${selectedSize})`, 
+                        title: product.title + ` (Size: ${selectedSize})`, 
                         price: product.price, 
                         images: product.thumbnail, 
                         quantity: 1
@@ -404,10 +404,10 @@ function renderProductDetail() {
                     const existingItemIndex = cart.findIndex(item => item.id === cartItem.id);
                     if(existingItemIndex !== -1) {
                         cart[existingItemIndex].quantity += 1;
-                        alert(`Đã tăng số lượng đôi ${product.title} (Size ${selectedSize}) trong giỏ`);
+                        showToast(`Đã tăng số lượng đôi ${product.title} trong giỏ`,'success');
                     } else {
                         cart.push(cartItem);
-                        alert('Đã thêm sản phẩm vào giỏ!');
+                        showToast('Đã thêm sản phẩm vào giỏ!','success');
                     }
                     localStorage.setItem('kicks_cart', JSON.stringify(cart));
                     updateCartBadge();
@@ -423,7 +423,7 @@ function renderProductDetail() {
                     // Yêu cầu phải đăng nhập mới cho lưu Wishlist
                     const user = JSON.parse(localStorage.getItem('kicks_logged_in_user'));
                     if(!user) {
-                        alert("Vui lòng đăng nhập để thêm sản phẩm vào mục Yêu Thích!");
+                        showToast("Vui lòng đăng nhập để thêm sản phẩm vào mục Yêu Thích!",'error');
                         window.location.href = "auth.html?tab=login";
                         return;
                     }
@@ -440,14 +440,22 @@ function renderProductDetail() {
                     const isExist = wishlist.find(item => item.id === product.id);
 
                     if(isExist) {
-                        alert('Sản phẩm này đã có trong danh sách Yêu Thích của bạn rồi!');
+                        showToast('Sản phẩm này đã có trong danh sách Yêu Thích của bạn rồi!','info');
                     } else {
                         wishlist.push(wishlistItem);
                         localStorage.setItem('kicks_wishlist', JSON.stringify(wishlist));
-                        alert('❤️ Đã thả tim! Bạn có thể xem lại trong User Profile.');
+                        showToast('❤️ Đã thả tim! Bạn có thể xem lại trong User Profile.','success');
                     }
                 });
             }
+            let relatedProducts = products.filter(p => p.brand === product.brand && p.id !== product.id);
+            if (relatedProducts.length < 4) {
+                const otherProducts = products.filter(p => p.brand !== product.brand && p.id !== product.id);
+                relatedProducts = [...relatedProducts, ...otherProducts];
+            }
+            relatedProducts.sort(() => 0.5 - Math.random());
+            const crossSellList = relatedProducts.slice(0, 4);
+            renderProductsGrid(crossSellList, 'pdp-cross-sell-list');
         });
 }
 document.addEventListener("DOMContentLoaded", () =>{

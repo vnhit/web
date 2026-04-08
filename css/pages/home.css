@@ -1,27 +1,24 @@
-/* =========================================================
-   TRANG CHỦ (HOME PAGE)
-   ========================================================= */
 
 .home-page {
-    /* Đẩy full chiều ngang, không bọc max-width như các trang con */
     width: 100%;
 }
 
-.text-gray { color: #666; }
+.text-gray { 
+    color: #666;
+ }
 
-/* --- 1. HERO SECTION (Banner chính) --- */
 .hero-section {
     display: flex;
     padding: 80px 64px;
     align-items: center;
     gap: 40px;
-    min-height: 85vh; /* Chiếm gần hết màn hình đầu tiên */
+    min-height: 85vh; 
     background-color: var(--surface);
 }
 
 .hero-content { 
     flex: 1; 
-    z-index: 2; /* Nổi lên trên */
+    z-index: 2; 
 }
 .hero-content .body-md { 
     margin: 24px 0 40px; 
@@ -31,7 +28,7 @@
 .hero-actions { 
     display: flex; 
     gap: 16px; 
-    min-height: 50px; /* Giữ form khi chưa có nút */
+    min-height: 50px; 
 }
 
 .hero-visual { 
@@ -41,29 +38,26 @@
     justify-content: center; 
 }
 
-/* Khung ảnh nghiêng đặc trưng Brutalist */
 .tilted-square {
     width: 480px; 
     height: 480px;
-    background: #e2e2e2; /* Xám nhạt chờ ảnh */
+    background: transparent; 
     transform: rotate(-10deg);
     display: flex; 
     align-items: center; 
     justify-content: center;
-    overflow: hidden;
-    /* Bóng đổ hắt nhẹ (Ambient Shadow) */
-    box-shadow: 0 24px 48px rgba(17, 17, 17, 0.08);
+    overflow: visible; 
+    box-shadow: none; 
 }
 .tilted-square img { 
-    width: 110%; 
-    transform: rotate(10deg) scale(1.1); 
+    width: 120%; 
+    height: auto;
+    transform: rotate(10deg) scale(1.25) translateY(-20px); 
     object-fit: contain; 
+    filter: drop-shadow(0 30px 30px rgba(0,0,0,0.25)); 
 }
-
-
-/* --- 2. BRAND TICKER (Thanh chạy chữ) --- */
 .brand-ticker {
-    background-color: var(--on-surface); /* Đen tuyền */
+    background-color: var(--on-surface); 
     color: white;
     padding: 32px 0;
     overflow: hidden;
@@ -85,9 +79,8 @@
 }
 
 
-/* --- 3. TRENDING SECTION (Sản phẩm nổi bật) --- */
 .trending-section { 
-    padding: 100px 64px; 
+    padding: 80px 64px; 
     background: var(--surface-container-low); 
 }
 .section-header { 
@@ -97,20 +90,18 @@
     margin-bottom: 48px; 
 }
 
-/* Lưới 4 sản phẩm */
 .home-product-grid { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
     gap: 32px; 
-    min-height: 400px; /* Giữ khung khi chưa lặp JS */
+    min-height: 400px; 
 }
 
 
-/* --- 4. PROMO / MANIFESTO SECTION (Quảng cáo Lookbook) --- */
 .promo-section { 
     display: flex; 
     background: var(--surface); 
-    padding: 120px 64px; 
+    padding: 60px 64px; 
     gap: 80px; 
     align-items: center; 
 }
@@ -118,18 +109,24 @@
 .promo-visual { 
     flex: 1; 
     position: relative; 
-    background: #e2e2e2;
-    min-height: 600px; /* Giữ form */
+    background: transparent; 
+    min-height: 200px; 
     display: flex;
-}
-.promo-visual img { 
-    width: 100%; 
-    height: 100%;
-    object-fit: cover; 
-    filter: grayscale(100%); /* Hiệu ứng đen trắng ngầu lòi */
+    align-items: center; 
+    justify-content: center;
+    overflow: visible; 
 }
 
-/* Điểm nhấn cục màu cam đè lên góc ảnh */
+.promo-visual img { 
+    width: 40%; 
+    height: auto;
+    object-fit: contain; 
+    
+    transform: rotate(-15deg) scale(1.1) translateY(-20px); 
+    
+    filter:  drop-shadow(0 30px 30px rgba(0,0,0,0.25)); 
+}
+
 .orange-box {
     position: absolute; 
     bottom: -24px; 
@@ -146,4 +143,31 @@
 .promo-content { 
     flex: 1; 
     padding-left: 40px; 
+}
+/*  */
+.link-underline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--on-surface); 
+    text-decoration: none; 
+    border-bottom: 2px solid var(--on-surface);
+    padding-bottom: 4px; 
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.link-underline:hover {
+    color: var(--primary); 
+    border-bottom-color: var(--primary);
+}
+
+.link-underline.text-primary {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+.link-underline.text-primary:hover {
+    color: var(--on-surface); 
+    border-bottom-color: var(--on-surface);
 }

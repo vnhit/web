@@ -1,11 +1,15 @@
 // cart page
 function renderCartPage(){
     const cartListElement = document.getElementById('cart-item-list');
-    const cartTotalElement = document.getElementById('summary-subtotal');
+    const cartSubtotalElement = document.getElementById('summary-subtotal');
+    const cartTotalElement = document.getElementById('summary-total');
     if(!cartListElement) return;
     let cart = JSON.parse(localStorage.getItem('kicks_cart')) || [];
     if(cart.length ===0){
         cartListElement.innerHTML='<p class="cart-empty-msg">Giỏ hàng trống</p>';
+        if(cartSubtotalElement) {
+            cartSubtotalElement.textContent = '$0.00';
+        }
         if(cartTotalElement){
             cartTotalElement.textContent = '$0.00';
         }
@@ -40,6 +44,9 @@ function renderCartPage(){
         `;     
     });
     cartListElement.innerHTML = cartHTML;
+    if(cartSubtotalElement) {
+        cartSubtotalElement.textContent = '$' + totalPrice.toFixed(2);
+    }
     if(cartTotalElement){
         cartTotalElement.textContent = '$' + totalPrice.toFixed(2);
     }
@@ -74,6 +81,7 @@ function updateCartQuantity(id,change){
         localStorage.setItem('kicks_cart',JSON.stringify(cart));
 
         renderCartPage();
+        if(typeof updateCartBadge === 'function') updateCartBadge();
     }
     
 }
@@ -83,7 +91,19 @@ function removeCartItem(id){
     cart = cart.filter(item => item.id != id);
     localStorage.setItem('kicks_cart',JSON.stringify(cart));
     renderCartPage();
+    if(typeof updateCartBadge === 'function') updateCartBadge();
 }
 document.addEventListener("DOMContentLoaded",() => {
     renderCartPage();
+    const btnCheckout = document.getElementById('btn-checkout');
+    if (btnCheckout) {
+        btnCheckout.onclick = function() {
+            let cart = JSON.parse(localStorage.getItem('kicks_cart')) || [];
+            if(cart.length === 0) {
+                showToast("Giỏ hàng của bạn đang trống!",'error');
+            } else {
+                window.location.href = 'checkout.html';
+            }
+        };
+    }
 })
