@@ -391,6 +391,12 @@ function renderProductDetail() {
                 btnAddCart.parentNode.replaceChild(newBtn, btnAddCart);
                 
                 newBtn.addEventListener('click', () => {
+                    const user = JSON.parse(localStorage.getItem('kicks_logged_in_user'));
+                    if(!user) {
+                        showToast("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!", 'error');
+                        window.location.href = "auth.html?tab=login";
+                        return; 
+                    }
                     const cartItemId = product.id + '-' + selectedSize + '-' + selectedColor.replace('#', '');
                     const cartItem = {
                         id: cartItemId,
