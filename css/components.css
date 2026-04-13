@@ -28,9 +28,6 @@
     mix-blend-mode: darken; 
 }
 /* thông báo */
-/* =========================================================
-   TOAST MESSAGE (SINGLE LINE - HIỆN Ở GIỮA, FADE OUT)
-   ========================================================= */
 #toast-container {
     position: fixed;
     /* Căn ra chính giữa màn hình */
@@ -113,5 +110,37 @@
     to { 
         transform: scale(0.9) translateY(-20px); 
         opacity: 0; 
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .card-image {
+        height: 200px;
+    }
+    .toast {
+        min-width: 280px;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    .toast-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .btn-primary {
+        padding: 11px 22px;
+    }
+    .card-image {
+        height: 240px;
+    }
+    .toast {
+        min-width: 300px;
     }
 }

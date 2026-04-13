@@ -177,3 +177,37 @@
     margin-bottom: 0; 
     align-items: flex-end; 
 }
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .checkout-page {
+        padding: 0 20px;
+        margin: 32px auto 60px;
+    }
+    .checkout-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .checkout-summary-section {
+        position: static;
+    }
+    .summary-box {
+        padding: 24px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .checkout-items {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .checkout-page {
+        padding: 0 40px;
+    }
+    .checkout-layout {
+        gap: 60px;
+    }
+}

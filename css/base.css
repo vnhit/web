@@ -22,3 +22,21 @@ body {
 /* Các class chữ dùng chung */
 .display-lg { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; }
 .label-sm { font-family: 'Inter', sans-serif; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; }
+/* Responsive font sizes */
+@media (max-width: 767px) {
+    .display-lg { 
+        font-size: 2rem; 
+}
+    .label-sm { 
+        font-size: 0.5rem; 
+}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .display-lg { 
+        font-size: 2.5rem; 
+}
+    .label-sm { 
+        font-size: 0.6rem; 
+}
+}

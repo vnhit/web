@@ -197,6 +197,51 @@
     font-weight: 600;
     font-size: 1rem;
 }
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .cart-page {
+        padding: 0 20px;
+        margin: 32px auto 60px;
+    }
+    .cart-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .cart-summary-section {
+        position: static;
+    }
+    .summary-box {
+        padding: 24px;
+    }
+    .cart-item {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    .cart-item-image {
+        width: 100%;
+        height: 200px;
+    }
+    .cart-table-header {
+        display: none;
+    }
+    .promo-input-group {
+        flex-direction: column;
+    }
+    .promo-input {
+        border-right: 1px solid #ddd;
+        border-bottom: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .cart-page {
+        padding: 0 40px;
+    }
+    .cart-layout {
+        gap: 60px;
+    }
+}
 
 /* Nút xóa (Thùng rác) */
 .btn-remove {
